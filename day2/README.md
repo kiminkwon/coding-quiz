@@ -1,6 +1,6 @@
 ## Day 2
 
-How to running Unittest
+### How to running Unittest
 
 `python -m unittest test.py`
 
