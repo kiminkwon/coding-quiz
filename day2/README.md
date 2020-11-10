@@ -9,4 +9,4 @@ How to running Unittest
 Run this command :  
 `pip install unittest --user`  
 or  
-`python -m pip install uniitest --user`
+`python -m pip install unittest --user`
