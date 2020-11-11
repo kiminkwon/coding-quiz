@@ -10,7 +10,11 @@ test_case = [
     ([[1,2,3],[3,4,6,6,7],[8,9,10,12,5,6]],72),
     ([[3,4],[6,6,6],[7,7,7]],2),
     ([[1,2,3],[4,5,6],[7,8,9]],27),
-    ([[1,1,1],[1,1,1],[1,1,1]],1)
+    ([[1,1,1],[1,1,1],[1,1,1]],1),
+    ([[i for i in range(1,1000001)]
+    ,[i for i in range(1,1000001)]
+    ,[i for i in range(1,1000001)]]
+    ,1000000000000000000)
             ]
 
 
@@ -37,6 +41,14 @@ class Test(unittest.TestCase):
         for idx, case in enumerate(test_case):
             start_time = datetime.datetime.now()
             self.assertEqual(Solution.solution3(case[0]), case[1])
+            end_time = datetime.datetime.now()
+            print(f"TestCase #{idx} : {end_time - start_time}")
+
+    def test4(self):
+        print("\nSolution #3 Unittest")
+        for idx, case in enumerate(test_case):
+            start_time = datetime.datetime.now()
+            self.assertEqual(Solution.solution4(case[0]), case[1])
             end_time = datetime.datetime.now()
             print(f"TestCase #{idx} : {end_time - start_time}")
 
