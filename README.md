@@ -1,8 +1,6 @@
 # K-GURU 코딩 퀴즈
 
 ### 매일매일 퀴즈를 풀며, 코딩하는 즐거움~ 우리 함께 해요~
-![ex_screenshot](./images/unnamed.jpg)
-
 ### 깃허브에 퀴즈 올리는 법
 
 1. git을 다운받아 설치 합니다. <https://git-scm.com/downloads>
@@ -30,3 +28,4 @@
 
 10. 추후에 코드리뷰를 확인합니다.
 
+![ex_screenshot](./images/unnamed.jpg)
