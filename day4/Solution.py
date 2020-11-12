@@ -1,15 +1,13 @@
 def nbMonths(startPriceOld, startPriceNew, savingperMonth, percentLossByMonth):
-    monthCount = 1
+    monthCount = 0
 
-    while 1:
-        startPriceOld *= (100 - percentLossByMonth) / 100
-        startPriceNew *= (100 - percentLossByMonth) / 100
-
-        if startPriceOld - startPriceNew + (savingperMonth * monthCount) > 0:
-            return [monthCount, int(startPriceOld - startPriceNew + (savingperMonth * monthCount))]
-
+    while startPriceOld - startPriceNew + (savingperMonth * monthCount) < 0:
         if monthCount % 2 == 1:
             percentLossByMonth += 0.5
+
         monthCount += 1
+
+        startPriceOld *= (100 - percentLossByMonth) / 100
+        startPriceNew *= (100 - percentLossByMonth) / 100        
         
-    return -1
+    return [monthCount, int(startPriceOld - startPriceNew + (savingperMonth * monthCount))]
