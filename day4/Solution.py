@@ -10,4 +10,4 @@ def nbMonths(startPriceOld, startPriceNew, savingperMonth, percentLossByMonth):
         startPriceOld *= (100 - percentLossByMonth) / 100
         startPriceNew *= (100 - percentLossByMonth) / 100        
         
-    return [monthCount, int(startPriceOld - startPriceNew + (savingperMonth * monthCount))]
+    return [monthCount, round(startPriceOld - startPriceNew + (savingperMonth * monthCount))]
