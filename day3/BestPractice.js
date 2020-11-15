@@ -1,0 +1,1 @@
+const solve = a => a.map( v => new Set(v).size ).reduce( (v,w) => v*w , 1 ) ;
