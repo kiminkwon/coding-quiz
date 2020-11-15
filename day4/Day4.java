@@ -40,29 +40,38 @@ public class Day4 {
 		}
 	}
 		
- 
 	public static int[] nbMonths(float startPriceOld, float startPriceNew,float savingperMonth,double percentLossByMonth) throws Exception{
-		int month = 1; // month 는 0부터 시작입니다. 왜냐면 현재 상태에서 살 수 있는 지 부터 확인이 되어야 되기 떄문에 현재 살 수 있는지 확인하고, 살 수 없을때 부터 month += 1 해주면 됩니다.
+		int month = 0;
 		int changes= 0;
 		boolean purchaseableYn = false;
+		double savingAmt = month * savingperMonth; // 적당한 띄어쓰기는 가독성을 높여 줍니다.
 		
-		// 이 부분이 while 바디 밖으로 나와야 합니다. while 문을 반복하면서 해당 변수가 새로 정의 되므로 연산한 결과가 누적이 되지 않고, 계속 재정의만 되서 올바를 결과값을 얻을 수 없습니다.
-		double savingAmt = month*savingperMonth;  
-		double lossRatio = Math.floor(month/2)*0.5; 
-		double priceOld = startPriceOld-(startPriceOld/100*(percentLossByMonth+lossRatio));
-		double priceNew = startPriceNew-(startPriceNew/100*(percentLossByMonth+lossRatio));
+		// 질문?? 왜 looping 전에 미리 차 값이 줄어들까요?? 퀴즈에서는 현재 자산을 가지고 새차를 살 수 있는지를 판별 하는것인거 같은데.. 1달이 가기 전부터 차가 썩었다????
+		startPriceOld -= ((startPriceOld / 100) * percentLossByMonth); // 여러 연산이 묶인 경우 순서대로 연산이 되기는 하지만 적절히 괄호를 넣어주면 가독성이 높아 집니다.
+		startPriceNew -= ((startPriceNew / 100) * percentLossByMonth);
 		
-		while(!purchaseableYn) { //구매할 수 있는지 여부
-			// 다시 풀어 보세요 ~~~
-//			System.out.println("손실비율 :" + lossRatio);
-//			System.out.println(priceOld);
-//			System.out.println(priceNew);
-			if((savingAmt+priceOld)-priceNew>0) {
+		double lossRatio = 0;
+		
+		if(startPriceOld + savingAmt - startPriceNew>0) {
+			purchaseableYn = true;
+		}else {
+			month++;
+			lossRatio = Math.floor( month/2 ) * 0.5;
+		}
+
+		savingAmt = month * savingperMonth;
+		
+		while(!purchaseableYn) {
+			if((savingAmt + startPriceOld) - startPriceNew>0) { 
 				purchaseableYn = true;
-				changes = (int)((savingAmt+priceOld)-priceNew);
+				changes = (int)((savingAmt+startPriceOld)-startPriceNew);  // 퀴즈에 명시를 못해드렸습니다. 이건 제 실수 입니다. 반올림 해주세요.. ㅜㅜ
 			}else {
 				month++;
 			}
+			lossRatio = Math.floor( month/2 ) * 0.5;
+			startPriceOld -= (startPriceOld / 100 * (percentLossByMonth + lossRatio)); 
+			startPriceNew -= (startPriceNew / 100 * (percentLossByMonth + lossRatio));
+			savingAmt = month * savingperMonth;
 		}
 		int[] returnValues = {month, changes}; 
 		return returnValues;
