@@ -19,5 +19,13 @@ class Test(unittest.TestCase):
             end_time = datetime.datetime.now()
             print(f"TestCase #{idx} : {end_time - start_time}")
 
+    def test2(self):
+        print("\nSolution #2 Unittest")
+        for idx, case in enumerate(test_case):
+            start_time = datetime.datetime.now()
+            self.assertEqual(Solution.solution2(case[0]), case[1])
+            end_time = datetime.datetime.now()
+            print(f"TestCase #{idx} : {end_time - start_time}")
+
 if __name__ == '__main__':
     unittest.main()

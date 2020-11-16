@@ -19,3 +19,7 @@ or
 
 Using `while loop` and list `pop()`  
 
+#### solution2
+
+Using `collections().Counter()`
+
