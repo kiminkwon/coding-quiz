@@ -1,6 +1,3 @@
-# test1 = [1, 1, 1, 2, 2, 3]
-# test2 = [6, 5, 4, 100, 6, 5, 4, 100, 6, 5, 4, 200]
-
 def solution1(arr):
     x = None
     y = None
