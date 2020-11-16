@@ -1,4 +1,4 @@
-## Day 4
+## Day 6
 
 ### How to running Unittest
 
@@ -23,3 +23,6 @@ Using `while loop` and list `pop()`
 
 Using `collections().Counter()`
 
+#### solution3
+
+Using `collections().Counter()` and `sort in Counter(arr)`

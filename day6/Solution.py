@@ -1,5 +1,5 @@
-test1 = [1, 1, 1, 2, 2, 3]
-test2 = [6, 5, 4, 100, 6, 5, 4, 100, 6, 5, 4, 200]
+# test1 = [1, 1, 1, 2, 2, 3]
+# test2 = [6, 5, 4, 100, 6, 5, 4, 100, 6, 5, 4, 200]
 
 def solution1(arr):
     x = None
@@ -28,3 +28,7 @@ def solution2(arr):
         if x and y:
             return x * x * y
     return -1
+
+from functools import reduce
+def solution3(arr):
+    return reduce(lambda x,y : x * x * y, list(map(lambda x: x[0],sorted(Counter(arr).items(), key=lambda x: x[1])[:2])))
