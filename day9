@@ -1,0 +1,18 @@
+public class testday9 {
+
+	public static void main(String[] args) {
+		repeatStr(2, "aaaa");
+		repeatStr(3, "Hello?");
+	}
+
+	public static String repeatStr(int cnt, String word) {
+		String Returncount = "";
+
+		for(int i=0; i<cnt; i++) {
+			Returncount = Returncount + word;
+		}
+
+		System.out.println(Returncount);
+		return Returncount;
+	}
+}
