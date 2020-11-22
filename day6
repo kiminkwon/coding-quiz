@@ -1,0 +1,28 @@
+public class testday6 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+System.out.println(missingValue(new int[] {1,1,1,2,2,3}));
+	}
+   public static int missingValue(int[] arr) {
+	   Map<Integer,Integer> m = new HashMap<Integer, Integer>();
+	   
+	   for(int i :arr) {
+		   if(m.get(i) == null)
+			   m.put(i,0);
+		   m.put(i, m.get(i)+1);
+	   }
+	   
+	   int x,y;
+	   x=y=0;
+       
+	   for(java.util.Map.Entry<Integer, Integer> s : m.entrySet()) {
+		   if(s.getValue() == 1)
+			    x= s.getKey();
+		   else if(s.getValue()==2)
+			    y= s.getKey();
+	   }
+   
+   return x*x*y;
+}
+}
