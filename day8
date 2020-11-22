@@ -1,0 +1,17 @@
+package count;
+
+public class testday8 {
+static String tripleTrouble(String one, String two, String three) {
+		String str = "";
+
+		String[] onearr = one.split("");
+		String[] twoarr = two.split("");
+		String[] threearr = three.split("");
+
+		for(int i=0; i<onearr.length;i++) {
+			str += onearr[i] + twoarr[i] + threearr[i];
+		}
+		System.out.println(str);
+		return str;
+	}
+}
